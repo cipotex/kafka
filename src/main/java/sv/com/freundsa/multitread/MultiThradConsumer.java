@@ -30,9 +30,9 @@ public class MultiThradConsumer {
         props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         //
-        ExecutorService executor= Executors.newFixedThreadPool(1);
+        ExecutorService executor= Executors.newFixedThreadPool(5);
         
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
            DevThreadConsumer worker=  new DevThreadConsumer(new KafkaConsumer<>(props));
            executor.execute(worker);
         }

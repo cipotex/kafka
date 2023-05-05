@@ -43,7 +43,7 @@ public class DevThreadConsumer extends Thread {
             while (!closed.get()) {
                 ConsumerRecords<String, String> records= consumer.poll(Duration.ofMillis(100));
                 for (ConsumerRecord<String, String> record  : records) {
-                      log.info (" offset value = {}  ,  ofsset={}  , partition={} ", record.value(),record.offset(), record.partition(), record.key());
+                      log.info (" offset value = {}  ,  ofsset={}  , partition={}  key={}", record.value(),record.offset(), record.partition(), record.key());
 
                 }
             }

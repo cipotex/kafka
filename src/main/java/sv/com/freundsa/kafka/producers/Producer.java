@@ -38,11 +38,11 @@ public class Producer {
 
             for (int i = 0; i < 1000; i++) {
                 //producer.send(new ProducerRecord<String, String>("devs4j-topic", String.valueOf(i), "message : " + i)).get();
-                producer.send(new ProducerRecord<String, String>("devs4j-topic", String.valueOf(i), "message : " + i));
+                producer.send(new ProducerRecord<String, String>("devs4j-topic", String.valueOf(i%2), "message : " + i));
             }
             producer.flush();
             //long duration = System.currentTimeMillis() - startime;
-            log.error(" duracion fue de ", System.currentTimeMillis() - startime);
+            log.info(" duracion fue de {}", System.currentTimeMillis() - startime);
         }
     }
 }
